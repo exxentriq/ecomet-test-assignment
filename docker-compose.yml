@@ -1,6 +1,18 @@
+version: '3'
+
 services:
-  python-server:
-    build: ./
-    command: sh -c "uvicorn main:app --host 0.0.0.0 --port 80"
+  server:
+    build: ./server
+    env_file:
+      ./server/.env
     ports:
       - "80:80"
+    volumes:
+      - ./data:/app/data
+
+  parser:
+    build: ./parser
+    env_file:
+      ./parser/.env
+    volumes:
+      - ./data:/app/data

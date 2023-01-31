@@ -1,0 +1,2 @@
+# Run Scrapy every minute
+* * * * * cd /app && python main.py
